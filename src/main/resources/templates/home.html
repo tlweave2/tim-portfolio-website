@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim's Portfolio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        .location-based-pitch {
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            max-width: 800px;
+        }
+        .location-based-pitch h2 {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-size: 24px;
+        }
+        .location-based-pitch p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        .pitch-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .pitch-content h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        .pitch-text {
+            font-size: 16px;
+            color: #333;
+            text-align: justify;
+        }
+        .location-info, .company-info {
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Home</a></li>
+            <li><a th:href="@{/about}">About</a></li>
+            <li><a th:href="@{/projects}">Projects</a></li>
+            <li><a th:href="@{/resume}">Resume</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi! I'm <span th:text="${name}">Tim</span></h1>
+            <p>Computer Science student at Arizona State University</p>
+            <p>I'm a highly motivated Computer Science student passionate about software development and eager to learn and contribute to innovative projects.</p>
+        </div>
+        <div class="profile-image-container">
+            <img th:src="@{/images/disney.png}" alt="Tim's profile picture" class="profile-image">
+        </div>
+    </section>
+
+    <div class="content-wrapper">
+        <section class="skills">
+            <h2>Skills & Experience</h2>
+            <ul>
+                <li>Developing in Java and Python programming languages.</li>
+                <li>Strong foundation in core programming principles, data structures, algorithms, and software development methodologies.</li>
+                <li>Experience solving problems and collaborating on projects through academic coursework.</li>
+                <li>Actively seek out opportunities to expand my knowledge base through personal projects, online courses, and hackathons.</li>
+            </ul>
+        </section>
+
+        <section class="career-objective">
+            <h2>Looking for Opportunities</h2>
+            <p>As a Computer Science student, I'm actively seeking internships and entry-level positions where I can:</p>
+            <ul>
+                <li>Apply my academic knowledge and skills to real-world software development challenges.</li>
+                <li>Learn from experienced engineers and mentors.</li>
+                <li>Contribute to a collaborative and innovative team environment.</li>
+                <li>Gain practical experience in the tech industry.</li>
+            </ul>
+        </section>
+    </div>
+
+    <section class="location-based-pitch">
+        <div id="locationInfo" class="location-info">
+            <p>Dynamic location-based pitch will load here with your API integrations!</p>
+        </div>
+        <div id="pitchResult" class="pitch-content" style="display:none;">
+            <!-- Content will be dynamically inserted here by JavaScript -->
+        </div>
+        <div id="errorMessage" style="display:none; color: red; margin-top: 10px;"></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Tim's Portfolio. All rights reserved.</p>
+</footer>
+</body>
+</html>
