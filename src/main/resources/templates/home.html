@@ -3,110 +3,713 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tim's Portfolio</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Timothy Weaver - Computer Science Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .location-based-pitch {
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            max-width: 800px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .location-based-pitch h2 {
-            margin-bottom: 15px;
-            color: #333;
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --text: #334155;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 0 0 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid white;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-light);
+            padding: 6rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
             text-align: center;
-            font-size: 24px;
+            margin-bottom: 3rem;
+            color: var(--primary);
         }
-        .location-based-pitch p {
-            margin-bottom: 10px;
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--bg-light);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .resume {
+            background: var(--bg-light);
+        }
+
+        .resume-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .resume-download {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .resume-grid {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .resume-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .resume-section h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .resume-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .resume-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .resume-title {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .resume-company {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .resume-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .resume-description {
+            color: var(--text);
             line-height: 1.6;
         }
-        .pitch-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-top: 20px;
+
+        .resume-description ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
         }
-        .pitch-content h3 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 20px;
+
+        .resume-description li {
+            margin-bottom: 0.5rem;
         }
-        .pitch-text {
-            font-size: 16px;
-            color: #333;
-            text-align: justify;
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
         }
-        .location-info, .company-info {
-            font-style: italic;
-            color: #555;
+
+        .contact .section-title {
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
 <body>
-<header>
+    <!-- Navigation -->
     <nav>
-        <ul>
-            <li><a th:href="@{/}">Home</a></li>
-            <li><a th:href="@{/about}">About</a></li>
-            <li><a th:href="@{/projects}">Projects</a></li>
-            <li><a th:href="@{/resume}">Resume</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="logo">Tim Weaver</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-</header>
 
-<main>
-    <section class="hero">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi! I'm <span th:text="${name}">Tim</span></h1>
-            <p>Computer Science student at Arizona State University</p>
-            <p>I'm a highly motivated Computer Science student passionate about software development and eager to learn and contribute to innovative projects.</p>
+            <h1 class="hero-title">Timothy Weaver</h1>
+            <p class="hero-subtitle">Computer Science Student • AI Concentration</p>
+            <p class="hero-description">
+                Passionate about artificial intelligence and software development with a unique entrepreneurial background. 
+                Currently studying Computer Science with AI specialization at Arizona State University and building innovative AI-powered projects.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
-        <div class="profile-image-container">
-            <img th:src="@{/images/disney.png}" alt="Tim's profile picture" class="profile-image">
+        <div class="hero-image">
+            <img src="/images/profile.jpg" alt="Timothy Weaver" class="profile-pic">
         </div>
     </section>
 
-    <div class="content-wrapper">
-        <section class="skills">
-            <h2>Skills & Experience</h2>
-            <ul>
-                <li>Developing in Java and Python programming languages.</li>
-                <li>Strong foundation in core programming principles, data structures, algorithms, and software development methodologies.</li>
-                <li>Experience solving problems and collaborating on projects through academic coursework.</li>
-                <li>Actively seek out opportunities to expand my knowledge base through personal projects, online courses, and hackathons.</li>
-            </ul>
-        </section>
-
-        <section class="career-objective">
-            <h2>Looking for Opportunities</h2>
-            <p>As a Computer Science student, I'm actively seeking internships and entry-level positions where I can:</p>
-            <ul>
-                <li>Apply my academic knowledge and skills to real-world software development challenges.</li>
-                <li>Learn from experienced engineers and mentors.</li>
-                <li>Contribute to a collaborative and innovative team environment.</li>
-                <li>Gain practical experience in the tech industry.</li>
-            </ul>
-        </section>
-    </div>
-
-    <section class="location-based-pitch">
-        <div id="locationInfo" class="location-info">
-            <p>Dynamic location-based pitch will load here with your API integrations!</p>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I'm a Computer Science student at Arizona State University with a specialization in Artificial Intelligence. My journey into tech is unconventional - before diving into code, I spent nearly two decades as the owner of Strokers, a successful motorcycle shop in Merced, CA.</p>
+                
+                <p>This entrepreneurial experience taught me invaluable lessons in problem-solving, leadership, and customer service that I now apply to AI development and software engineering. I'm passionate about creating intelligent, user-friendly applications and exploring the intersection of AI with real-world business applications.</p>
+                
+                <p>My current focus includes machine learning, computer vision, natural language processing, and building AI-powered applications that solve practical problems. When I'm not coding or studying AI, you'll find me hitting the trails or working on personal projects that push the boundaries of what's possible with AI.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Machine Learning</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>Python</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>Java</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>Spring Boot</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>TensorFlow</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>React</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>Computer Vision</h3>
+                </div>
+                <div class="skill-card">
+                    <h3>NLP</h3>
+                </div>
+            </div>
         </div>
-        <div id="pitchResult" class="pitch-content" style="display:none;">
-            <!-- Content will be dynamically inserted here by JavaScript -->
-        </div>
-        <div id="errorMessage" style="display:none; color: red; margin-top: 10px;"></div>
     </section>
-</main>
 
-<footer>
-    <p>&copy; 2024 Tim's Portfolio. All rights reserved.</p>
-</footer>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <h3 class="project-title">VidlyAI</h3>
+                    <p class="project-description">
+                        AI-powered video generation platform featuring advanced Ken Burns effects, machine learning-driven content optimization, and intelligent video processing capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">FFmpeg</span>
+                    </div>
+                    <a href="https://vidlyai.com" class="btn btn-primary" target="_blank">View Project</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">🧠</div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Learning Projects</h3>
+                    <p class="project-description">
+                        Collection of machine learning and AI projects from coursework, including computer vision models, NLP applications, and deep learning experiments.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                    <a href="https://github.com/tlweave2/ai-projects" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">💼</div>
+                <div class="project-content">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">
+                        This responsive portfolio website built with Spring Boot, featuring modern design and deployment automation.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">Thymeleaf</span>
+                        <span class="tech-tag">Railway</span>
+                        <span class="tech-tag">Cloudflare</span>
+                    </div>
+                    <a href="https://github.com/tlweave2/tim-portfolio-website" class="btn btn-primary" target="_blank">View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume">
+        <h2 class="section-title">Resume</h2>
+        <div class="resume-content">
+            <div class="resume-download">
+                <a href="/resume.pdf" class="btn btn-primary" target="_blank">Download PDF Resume</a>
+            </div>
+            
+            <div class="resume-grid">
+                <div class="resume-section">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <div>
+                                <div class="resume-title">Bachelor of Science in Computer Science</div>
+                                <div class="resume-company">Arizona State University • AI Specialization</div>
+                            </div>
+                            <div class="resume-date">In Progress</div>
+                        </div>
+                        <div class="resume-description">
+                            Relevant Coursework: Data Structures & Algorithms, Machine Learning, Computer Vision, 
+                            Natural Language Processing, Object-Oriented Programming, Database Management
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Technical Projects</h3>
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <div>
+                                <div class="resume-title">VidlyAI - AI Video Generation Platform</div>
+                                <div class="resume-company">Full-Stack Development</div>
+                            </div>
+                            <div class="resume-date">Dec 2024 - Present</div>
+                        </div>
+                        <div class="resume-description">
+                            <ul>
+                                <li>Architected and developed AI-powered video generation platform from concept to production</li>
+                                <li>Implemented machine learning algorithms for intelligent video processing and Ken Burns effects</li>
+                                <li>Built robust backend API using Spring Boot with PostgreSQL database</li>
+                                <li>Integrated FFmpeg for advanced video processing and AI-driven content optimization</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <div>
+                                <div class="resume-title">Field Day - Wildlife Data Collection Tool</div>
+                                <div class="resume-company">Team Development</div>
+                            </div>
+                            <div class="resume-date">Jun 2024</div>
+                        </div>
+                        <div class="resume-description">
+                            <ul>
+                                <li>Developed core functionality for animal differentiation system in collaborative environment</li>
+                                <li>Implemented critical bug fixes improving system stability and performance</li>
+                                <li>Applied agile methodologies and Git version control for team coordination</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Professional Experience</h3>
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <div>
+                                <div class="resume-title">Business Owner & Operator</div>
+                                <div class="resume-company">Strokers Motorcycle Shop, Merced, CA</div>
+                            </div>
+                            <div class="resume-date">2003 - 2020</div>
+                        </div>
+                        <div class="resume-description">
+                            <ul>
+                                <li>Built and managed successful motorcycle service business for 18 years</li>
+                                <li>Implemented digital systems for inventory management and customer relationship management</li>
+                                <li>Coordinated with vendors, customers, and team members to ensure quality service delivery</li>
+                                <li>Achieved consistent customer satisfaction through effective leadership and problem-solving</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <div>
+                                <div class="resume-title">Clinical Engineer</div>
+                                <div class="resume-company">Stanford University Hospital, Stanford, CA</div>
+                            </div>
+                            <div class="resume-date">Previous</div>
+                        </div>
+                        <div class="resume-description">
+                            <ul>
+                                <li>Maintained and repaired critical medical equipment with precise technical specifications</li>
+                                <li>Collaborated with medical staff to troubleshoot complex system issues</li>
+                                <li>Implemented systematic approaches to equipment maintenance and problem resolution</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Military Service</h3>
+                    <div class="resume-item">
+                        <div class="resume-header">
+                            <div>
+                                <div class="resume-title">United States Army</div>
+                                <div class="resume-company">Walter Reed Medical Hospital</div>
+                            </div>
+                            <div class="resume-date"></div>
+                        </div>
+                        <div class="resume-description">
+                            <ul>
+                                <li>Served with distinction at Walter Reed Medical Hospital</li>
+                                <li>Received two Army Achievement Medals for meritorious service</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-content">
+            <p>I'm always interested in discussing new opportunities, collaborating on projects, or just connecting with fellow developers and entrepreneurs.</p>
+            <div class="contact-links">
+                <a href="mailto:tlweave2@asu.edu" class="contact-link">Email Me</a>
+                <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank">LinkedIn</a>
+                <a href="https://github.com/tlweave2" class="contact-link" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
