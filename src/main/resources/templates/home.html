@@ -3,170 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timothy Weaver - Computer Science Student</title>
+    <title>Timothy Weaver — Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --text: #334155;
-            --text-light: #64748b;
-            --bg: #ffffff;
-            --bg-light: #f8fafc;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --bg:        #faf8f3;
+            --bg-light:  #f3ede5;
+            --text:      #2c2420;
+            --text-light: #5a5550;
+            --border:    #d9cfc5;
+            --accent:    #c4631a;
+            --accent-light: #d97e3c;
+            --accent-dim: rgba(196, 99, 26, 0.08);
+            --radius:    3px;
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
+            font-family: 'IBM Plex Sans', sans-serif;
             background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 16px;
+            overflow-x: hidden;
         }
 
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
+        /* -- NAV -- */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            top: 0; width: 100%;
+            background: var(--bg);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 1rem 0;
         }
 
-        .nav-container {
-            max-width: 1200px;
+        .nav-inner {
+            max-width: 1100px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 0 2rem;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary);
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            color: var(--text);
+            letter-spacing: -0.015em;
+            font-weight: 600;
         }
+
+        .logo span { color: var(--accent); }
 
         .nav-links {
             display: flex;
+            gap: 0.25rem;
             list-style: none;
-            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Sections */
-        section {
-            padding: 4rem 2rem 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 4rem;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .hero-description {
-            font-size: 1.2rem;
             color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 600px;
+            font-size: 0.875rem;
+            font-weight: 400;
+            padding: 0.4rem 0.75rem;
+            transition: color 0.15s;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
+        .nav-links a:hover { color: var(--accent); }
+
+        /* -- LAYOUT -- */
+        .section-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
+
+        section { padding: 5rem 0; }
+
+        .section-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--text);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* -- HERO -- */
+        #home {
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .hero-name {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.8rem, 7vw, 4.2rem);
+            color: var(--text);
+            line-height: 1.08;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .hero-tagline {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-family: 'Crimson Text', serif;
+        }
+
+        .hero-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+            max-width: 560px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .badge {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0;
+            border: 1px solid var(--border);
+            color: var(--text-light);
+            letter-spacing: 0.05em;
+            background: var(--bg-light);
+            font-weight: 500;
+        }
+
+        .badge-amber { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+        .badge-green { border-color: #6b7c59; color: #6b7c59; background: rgba(107, 124, 89, 0.06); }
+
+        .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 
         .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius);
             font-weight: 600;
+            font-size: 0.9rem;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid var(--accent);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        .hero-image {
-            flex: 0 0 400px;
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-amber {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-amber:hover {
+            background: var(--accent-light);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .hero-img-box {
+            position: relative;
+        }
+
+        .hero-img-box::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            opacity: 0.3;
         }
 
         .profile-pic {
@@ -174,554 +234,904 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            box-shadow: var(--shadow-lg);
-            border: 4px solid white;
-        }
-
-        /* About Section */
-        .about {
+            display: block;
+            border: 2px solid var(--border);
             background: var(--bg-light);
-            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--primary);
+        /* Placeholder avatar when no image */
+        .profile-placeholder {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .about-content {
+        /* -- THREADS -- */
+        #threads { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg); }
+
+        .threads-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .thread {
+            padding: 2.5rem;
+            border-right: 1px solid var(--border);
+            position: relative;
+        }
+
+        .thread:last-child { border-right: none; }
+
+        .thread-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 2.2rem;
+            color: var(--accent);
+            opacity: 0.15;
+            line-height: 1;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .thread h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .thread p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+
+        /* -- ABOUT / STANFORD -- */
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
         }
 
-        .about-text {
-            font-size: 1.1rem;
+        .about-text p {
+            color: var(--text);
             line-height: 1.8;
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
         }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+        .highlight-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
         }
 
-        .skill-card {
+        .highlight-card h4 {
+            font-family: 'Crimson Text', serif;
+            color: var(--text);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .highlight-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .highlight-card .card-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* -- SKILLS -- */
+        .skills-panel {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .skill-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.875rem;
+        }
+
+        .skill-row:last-child { border-bottom: none; }
+
+        .skill-name { color: var(--text); font-weight: 500; }
+
+        .skill-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+
+        .stag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.6rem;
+            border-radius: 0;
             background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+            color: var(--text-light);
+            border: 1px solid var(--border);
+            font-weight: 500;
         }
 
-        .skill-card:hover {
-            transform: translateY(-4px);
-        }
+        /* -- PROJECTS -- */
+        #projects { background: var(--bg); }
 
-        /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
         }
 
         .project-card {
             background: white;
-            border-radius: 16px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: border-color 0.15s;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            border-color: var(--accent);
         }
 
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+        .project-banner {
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            font-size: 2rem;
+            background: var(--bg-light);
         }
 
-        .project-content {
-            padding: 2rem;
+        .banner-saas { background: #eee5d9; }
+        .banner-ai { background: #e8dfd5; }
+        .banner-sys { background: #e0f5e9; }
+        .banner-web { background: #f7e6d3; }
+        .banner-embed { background: #f5e5e0; }
+
+        .project-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+
+        .project-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .project-title {
-            font-size: 1.5rem;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--primary);
         }
 
-        .project-description {
+        .project-desc {
+            font-size: 0.9rem;
             color: var(--text-light);
-            margin-bottom: 1.5rem;
+            line-height: 1.65;
+            margin-bottom: 1.25rem;
+            flex: 1;
         }
 
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
 
-        .tech-tag {
+        .ttag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 0;
             background: var(--bg-light);
             color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.875rem;
+            border: 1px solid var(--border);
             font-weight: 500;
         }
 
-        /* Contact Section */
-        .resume {
-            background: var(--bg-light);
+        .project-link {
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
-        .resume-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        .project-link:hover { text-decoration: underline; }
 
-        .resume-download {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+        /* -- EXPERIENCE -- */
+        .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
 
-        .resume-grid {
-            display: grid;
-            gap: 3rem;
-        }
-
-        .resume-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .resume-section h3 {
-            color: var(--primary);
-            font-size: 1.5rem;
+        .exp-col h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.35rem;
+            color: var(--text);
             margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
             border-bottom: 2px solid var(--accent);
-            padding-bottom: 0.5rem;
+            font-weight: 600;
         }
 
-        .resume-item {
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
+        .exp-item {
+            padding: 1.5rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            position: relative;
         }
 
-        .resume-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--border);
         }
 
-        .resume-header {
+        .exp-item.highlight::before { background: var(--accent); }
+
+        .exp-header {
             display: flex;
             justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.4rem;
         }
 
-        .resume-title {
+        .exp-title {
             font-weight: 600;
-            color: var(--primary);
-            font-size: 1.1rem;
+            color: var(--text);
+            font-size: 0.95rem;
         }
 
-        .resume-company {
-            color: var(--accent);
+        .exp-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            white-space: nowrap;
+            padding-top: 0.2rem;
             font-weight: 500;
         }
 
-        .resume-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            white-space: nowrap;
+        .exp-org {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
-        .resume-description {
-            color: var(--text);
+        .exp-bullets {
+            list-style: none;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .exp-bullets li {
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.4rem;
             line-height: 1.6;
         }
 
-        .resume-description ul {
-            margin: 0.5rem 0;
-            padding-left: 1.5rem;
+        .exp-bullets li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
         }
 
-        .resume-description li {
+        /* -- EDUCATION -- */
+        #education { background: var(--bg); }
+
+        .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+
+        .edu-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+        }
+
+        .edu-card .degree {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .edu-card .school {
+            color: var(--accent);
+            font-size: 0.9rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
-        .contact {
-            background: var(--primary);
-            color: white;
+
+        .edu-card .dates {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .edu-card .courses {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+
+        .gpa-badge {
+            display: inline-block;
+            background: var(--accent-dim);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* -- CONTACT -- */
+        #contact {
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-inner {
             text-align: center;
-        }
-
-        .contact .section-title {
-            color: white;
-        }
-
-        .contact-content {
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        .contact-inner p {
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+            line-height: 1.8;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .contact-link {
-            color: white;
+        .contact-links a {
             text-decoration: none;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.85rem 1.75rem;
             font-weight: 500;
-            padding: 1rem 2rem;
-            border: 2px solid white;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            transition: all 0.15s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .contact-link:hover {
-            background: white;
-            color: var(--primary);
+        .contact-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-dim);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+        /* -- FOOTER -- */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+            text-align: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--text-light);
+            background: var(--bg);
+            font-weight: 500;
+        }
 
-            .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-            }
+        /* -- ANIMATIONS -- */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+        }
 
-            .hero-title {
-                font-size: 2.5rem;
-            }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .about-content {
+        /* -- RESPONSIVE -- */
+        @media (max-width: 900px) {
+            .hero-grid, .about-grid, .exp-grid, .edu-grid, .threads-grid {
                 grid-template-columns: 1fr;
             }
 
-            .projects-grid {
-                grid-template-columns: 1fr;
+            .hero-img-box {
+                display: flex;
+                justify-content: center;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+            .thread { border-right: none; border-bottom: 1px solid var(--border); }
+            .thread:last-child { border-bottom: none; }
 
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Tim Weaver</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Timothy Weaver</h1>
-            <p class="hero-subtitle">Computer Science Student • AI Concentration</p>
-            <p class="hero-description">
-                Passionate about artificial intelligence and software development with a unique entrepreneurial background. 
-                Currently pursuing my Master's degree in Computer Science with AI concentration at Arizona State University and building innovative AI-powered projects.
-            </p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+<!-- -- NAV -- -->
+<nav>
+    <div class="nav-inner">
+        <div class="logo">Tim<span>.</span>Weaver</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- -- HERO -- -->
+<section id="home">
+    <div class="section-wrap">
+        <div class="hero-grid">
+            <div class="hero-content fade-up">
+                <div class="hero-eyebrow">Software Engineer · AI · Full-Stack</div>
+                <h1 class="hero-name">Timothy<br>Weaver</h1>
+                <p class="hero-tagline">Software Engineer with an unconventional background and a lot of shipped work.</p>
+                <p class="hero-desc">
+                    B.S. Software Engineering, Summa Cum Laude, ASU — May 2025.<br>
+                    M.S. Computer Science (AI concentration), ASU — December 2026.<br>
+                    I build full-stack and AI-powered applications, and I care about getting them into production.
+                </p>
+                <div class="hero-badges">
+                    <span class="badge badge-amber">✓ BS Conferred May 2025</span>
+                    <span class="badge badge-green">● MS in Progress</span>
+                    <span class="badge">GPA 3.83 / 4.0</span>
+                    <span class="badge">US Army Veteran</span>
+                    <span class="badge">Stanford Medicine</span>
+                </div>
+                <div class="cta-row">
+                    <a href="#projects" class="btn btn-amber">View Projects →</a>
+                    <a href="/timothy_weaver_mar26.pdf" class="btn btn-ghost" target="_blank">Download Résumé</a>
+                    <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-img-box fade-up" style="transition-delay:0.15s">
+                <!-- Replace src with your actual photo path -->
+                <img src="/images/profile.jpg" alt="Timothy Weaver" class="profile-pic"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="profile-placeholder" style="display:none">👨‍💻</div>
             </div>
         </div>
-        <div class="hero-image">
-            <img src="/images/profile.jpg" alt="Timothy Weaver" class="profile-pic">
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+<!-- -- DIFFERENTIATORS -- -->
+<section id="threads">
+    <div class="threads-grid">
+        <div class="thread fade-up">
+            <div class="thread-num">01</div>
+            <h3>I've actually shipped things.</h3>
+            <p>VidlyAI and useventful.com are live, paying-customer products — not demos. Both built end-to-end: auth, billing, AI features, infra, and ongoing maintenance. I know the difference between code that works in dev and code that works in production.</p>
+        </div>
+        <div class="thread fade-up" style="transition-delay:0.1s">
+            <div class="thread-num">02</div>
+            <h3>Broad background, genuinely.</h3>
+            <p>18 years running a business before pivoting to software. Clinical engineering at Stanford before that, and the Army before that. I bring a different frame to problems — how do real systems fail, who depends on them, and what does "done" actually mean?</p>
+        </div>
+        <div class="thread fade-up" style="transition-delay:0.2s">
+            <div class="thread-num">03</div>
+            <h3>Full stack, top to bottom.</h3>
+            <p>Spring Boot and React for web apps. Python and PyTorch for ML. Arduino and embedded C for hardware. gRPC and distributed systems in coursework. I'm not a specialist yet — but I can find my way around a new layer of the stack without getting lost.</p>
+        </div>
+    </div>
+</section>
+
+<!-- -- ABOUT -- -->
+<section id="about">
+    <div class="section-wrap">
+        <p class="section-eyebrow">Background</p>
         <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm a Computer Science student at Arizona State University working towards my Bachelor's degree (June 2025) and planning to pursue a Master's with AI concentration (Dec 2026). My journey into tech is unconventional - before diving into code, I spent nearly two decades as the owner of Strokers, a successful motorcycle shop in Merced, CA.</p>
-                
-                <p>This entrepreneurial experience taught me invaluable lessons in problem-solving, leadership, and customer service that I now apply to AI development and software engineering. I'm passionate about creating intelligent, user-friendly applications and exploring the intersection of AI with real-world business applications.</p>
-                
-                <p>My current focus includes machine learning, computer vision, natural language processing, and building AI-powered applications that solve practical problems. When I'm not coding or studying AI, you'll find me hitting the trails or working on personal projects that push the boundaries of what's possible with AI.</p>
+        <div class="about-grid">
+            <div class="about-text fade-up">
+                <p>My path into software engineering is a bit unconventional. Before writing production code, I spent nearly two decades as the owner of Strokers, a motorcycle service business in Merced, CA — and before that I was a clinical engineer maintaining medical equipment at Stanford University Hospital and Walter Reed Army Medical Center.</p>
+
+                <p>I came back to school in my 40s, finished a B.S. in Software Engineering at ASU with a 3.83 GPA, and I'm now working through an M.S. in CS with an AI concentration. The business and engineering background informs how I approach software: I think about what actually needs to work, for whom, and what breaks first under real load.</p>
+
+                <p>My current focus is AI and full-stack development. I've shipped two production SaaS products, built an open-source agent framework, competed in an AI hackathon, and done coursework covering everything from binary exploitation to distributed systems to deep learning.</p>
+
+                <div class="highlight-card" style="margin-top:1.5rem">
+                    <div class="card-meta">Stanford Medicine / Lucile Packard Children's Hospital</div>
+                    <h4>Clinical Engineering — PiNO System</h4>
+                    <p>Before software, I spent years as a clinical engineer maintaining critical medical equipment. At Stanford I worked on a portable inhaled nitric oxide delivery system (PiNO) for neonates — a project that went through FDA evaluation and a multicenter trial whose results were published in the New England Journal of Medicine. It's an unusual background for a software engineer, and it shapes how I think about reliability.</p>
+                </div>
             </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Machine Learning</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>Python</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>Java</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>Spring Boot</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>TensorFlow</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>React</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>Computer Vision</h3>
-                </div>
-                <div class="skill-card">
-                    <h3>NLP</h3>
+
+            <div class="fade-up" style="transition-delay:0.1s">
+                <div class="skills-panel">
+                    <div class="skill-row">
+                        <span class="skill-name">Languages</span>
+                        <div class="skill-tags">
+                            <span class="stag">Java</span><span class="stag">Python</span>
+                            <span class="stag">C++</span><span class="stag">JavaScript</span><span class="stag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Frameworks</span>
+                        <div class="skill-tags">
+                            <span class="stag">Spring Boot</span><span class="stag">React</span>
+                            <span class="stag">Node.js</span><span class="stag">Next.js</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">AI / ML</span>
+                        <div class="skill-tags">
+                            <span class="stag">PyTorch</span><span class="stag">TensorFlow</span>
+                            <span class="stag">OpenCV</span><span class="stag">Scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">LLM / Agents</span>
+                        <div class="skill-tags">
+                            <span class="stag">Claude API</span><span class="stag">OpenAI</span>
+                            <span class="stag">Ollama</span><span class="stag">LangChain</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Databases</span>
+                        <div class="skill-tags">
+                            <span class="stag">PostgreSQL</span><span class="stag">MySQL</span>
+                            <span class="stag">MongoDB</span><span class="stag">Redis</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Infrastructure</span>
+                        <div class="skill-tags">
+                            <span class="stag">Docker</span><span class="stag">Railway</span>
+                            <span class="stag">Linux</span><span class="stag">Cloudflare</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Security</span>
+                        <div class="skill-tags">
+                            <span class="stag">Binary Exploit</span><span class="stag">ROP</span>
+                            <span class="stag">Web Exploit</span><span class="stag">Scapy</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Embedded</span>
+                        <div class="skill-tags">
+                            <span class="stag">Arduino</span><span class="stag">C</span>
+                            <span class="stag">PWM</span><span class="stag">OpenSCAD</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <span class="skill-name">Methodology</span>
+                        <div class="skill-tags">
+                            <span class="stag">Agile/Scrum</span><span class="stag">TDD</span>
+                            <span class="stag">REST APIs</span><span class="stag">gRPC</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
+<!-- -- PROJECTS -- -->
+<section id="projects">
+    <div class="section-wrap">
+        <p class="section-eyebrow">Featured Work</p>
+        <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">🤖</div>
-                <div class="project-content">
+
+            <!-- VidlyAI -->
+            <div class="project-card fade-up">
+                <div class="project-banner banner-ai">🎬</div>
+                <div class="project-body">
+                    <div class="project-label">Production SaaS · Live</div>
                     <h3 class="project-title">VidlyAI</h3>
-                    <p class="project-description">
-                        AI-powered video generation platform featuring advanced Ken Burns effects, machine learning-driven content optimization, and intelligent video processing capabilities.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">AI/ML</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">FFmpeg</span>
+                    <p class="project-desc">AI-powered video generation platform. Multi-LLM orchestration, Ken Burns effects via FFmpeg, Stripe billing, Redis caching, and containerized deployment. Built and operated end-to-end.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">Spring Boot</span><span class="ttag">React</span>
+                        <span class="ttag">PostgreSQL</span><span class="ttag">FFmpeg</span>
+                        <span class="ttag">Redis</span><span class="ttag">Stripe</span><span class="ttag">Docker</span>
                     </div>
-                    <a href="https://vidlyai.com" class="btn btn-primary" target="_blank">View Project</a>
+                    <a href="https://vidlyai.com" class="project-link" target="_blank">vidlyai.com →</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-image">🧠</div>
-                <div class="project-content">
-                    <h3 class="project-title">AI Learning Projects</h3>
-                    <p class="project-description">
-                        Collection of machine learning and AI projects from coursework, including computer vision models, NLP applications, and deep learning experiments.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">TensorFlow</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">OpenCV</span>
-                        <span class="tech-tag">Scikit-learn</span>
+            <!-- useventful.com -->
+            <div class="project-card fade-up" style="transition-delay:0.08s">
+                <div class="project-banner banner-saas">📅</div>
+                <div class="project-body">
+                    <div class="project-label">Production SaaS · Live</div>
+                    <h3 class="project-title">useventful.com</h3>
+                    <p class="project-desc">Multi-tenant embeddable event calendar platform for communities, cities, and organizations. Free and Pro tiers with AI flyer scanning, moderation queue, custom branding, and iframe embed.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">Next.js</span><span class="ttag">Prisma</span>
+                        <span class="ttag">PostgreSQL</span><span class="ttag">Multi-tenant</span>
+                        <span class="ttag">AI OCR</span><span class="ttag">Railway</span>
                     </div>
-                    <a href="https://github.com/tlweave2/ai-projects" class="btn btn-primary" target="_blank">View Code</a>
+                    <a href="https://useventful.com" class="project-link" target="_blank">useventful.com →</a>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-image">💼</div>
-                <div class="project-content">
+            <!-- AgentForge -->
+            <div class="project-card fade-up" style="transition-delay:0.12s">
+                <div class="project-banner banner-ai">🤖</div>
+                <div class="project-body">
+                    <div class="project-label">Open Source · GitHub</div>
+                    <h3 class="project-title">AgentForge</h3>
+                    <p class="project-desc">Universal AI agent framework featuring a unified LLM interface layer, ReAct and Plan-Execute reasoning engines, pluggable tool registry, and persistent memory management.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">Python</span><span class="ttag">LLM APIs</span>
+                        <span class="ttag">ReAct</span><span class="ttag">Tool Use</span><span class="ttag">Memory</span>
+                    </div>
+                    <a href="https://github.com/tlweave2/agentforge" class="project-link" target="_blank">github.com/tlweave2 →</a>
+                </div>
+            </div>
+
+            <!-- Apify Hackathon -->
+            <div class="project-card fade-up" style="transition-delay:0.16s">
+                <div class="project-banner banner-ai">⚡</div>
+                <div class="project-body">
+                    <div class="project-label">Hackathon · 4-Person Team</div>
+                    <h3 class="project-title">Autonomous Job Application Agent</h3>
+                    <p class="project-desc">Apify Hackathon project: autonomous agent that authenticates to LinkedIn/Indeed via cookie injection, targets Easy Apply listings, and uses Claude to fill application forms.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">Apify</span><span class="ttag">Claude API</span>
+                        <span class="ttag">Python</span><span class="ttag">Agentic</span><span class="ttag">Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distributed Banking -->
+            <div class="project-card fade-up" style="transition-delay:0.2s">
+                <div class="project-banner banner-sys">🏦</div>
+                <div class="project-body">
+                    <div class="project-label">CSE531 · Distributed Systems</div>
+                    <h3 class="project-title">Distributed gRPC Banking System</h3>
+                    <p class="project-desc">50-branch banking system built from scratch using gRPC and Lamport logical clocks. Achieved 100% consistency across all nodes. 20-hour intensive build session.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">gRPC</span><span class="ttag">Python</span>
+                        <span class="ttag">Lamport Clocks</span><span class="ttag">Protobuf</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mustang Arduino -->
+            <div class="project-card fade-up" style="transition-delay:0.24s">
+                <div class="project-banner banner-embed">🔧</div>
+                <div class="project-body">
+                    <div class="project-label">Embedded · Hardware</div>
+                    <h3 class="project-title">Water/Methanol Injection Controller</h3>
+                    <p class="project-desc">Arduino-based PWM pump controller for a Fox Body Mustang with Kenne Bell 2.2L supercharger. Hobbs-switch trigger, AEM 500cc nozzle sizing, HP Tuners log analysis. GitHub repo.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">Arduino</span><span class="ttag">C</span>
+                        <span class="ttag">PWM</span><span class="ttag">ECU Tuning</span><span class="ttag">OpenSCAD</span>
+                    </div>
+                    <a href="https://github.com/tlweave2" class="project-link" target="_blank">View on GitHub →</a>
+                </div>
+            </div>
+
+            <!-- Freelance — Manteca -->
+            <div class="project-card fade-up" style="transition-delay:0.28s">
+                <div class="project-banner banner-web">🏛️</div>
+                <div class="project-body">
+                    <div class="project-label">Freelance · Municipal</div>
+                    <h3 class="project-title">City of Manteca ADA Site Audit</h3>
+                    <p class="project-desc">WCAG 2.1 AA / ADA compliance audit and remediation for a municipal government website. DOJ Title II research, department supervisor surveys, user database cleanup (84 active users).</p>
+                    <div class="tech-tags">
+                        <span class="ttag">ADA/WCAG</span><span class="ttag">HTML</span>
+                        <span class="ttag">Accessibility</span><span class="ttag">Government</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio -->
+            <div class="project-card fade-up" style="transition-delay:0.32s">
+                <div class="project-banner banner-web">💼</div>
+                <div class="project-body">
+                    <div class="project-label">Personal · Open Source</div>
                     <h3 class="project-title">Portfolio Website</h3>
-                    <p class="project-description">
-                        This responsive portfolio website built with Spring Boot, featuring modern design and deployment automation.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Spring Boot</span>
-                        <span class="tech-tag">Thymeleaf</span>
-                        <span class="tech-tag">Railway</span>
-                        <span class="tech-tag">Cloudflare</span>
+                    <p class="project-desc">This site — Spring Boot + Thymeleaf backend, custom CSS, deployed via Railway with Cloudflare DNS.</p>
+                    <div class="tech-tags">
+                        <span class="ttag">Spring Boot</span><span class="ttag">Thymeleaf</span>
+                        <span class="ttag">Railway</span><span class="ttag">Cloudflare</span>
                     </div>
-                    <a href="https://github.com/tlweave2/tim-portfolio-website" class="btn btn-primary" target="_blank">View Code</a>
+                    <a href="https://github.com/tlweave2/tim-portfolio-website" class="project-link" target="_blank">View Code →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- -- EXPERIENCE -- -->
+<section id="experience">
+    <div class="section-wrap">
+        <p class="section-eyebrow">Background</p>
+        <h2 class="section-title">Experience</h2>
+        <div class="exp-grid">
+            <div>
+                <h3>Engineering & Technology</h3>
+
+                <div class="exp-item highlight fade-up">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Clinical Engineer</div>
+                            <div class="exp-org">Stanford University Hospital / Lucile Packard Children's Hospital</div>
+                        </div>
+                        <div class="exp-date">1995–2002</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Maintained critical medical equipment across OR, ICU, and NICU departments</li>
+                        <li>Worked on portable inhaled nitric oxide (PiNO) delivery system — went through FDA evaluation and a multicenter trial published in NEJM</li>
+                        <li>Served as Department Head, Mt. Zion Hospital, San Francisco</li>
+                        <li>Ensured JCAHO compliance across all managed equipment</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item fade-up">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Biomedical Equipment Technician</div>
+                            <div class="exp-org">Walter Reed Army Medical Center · U.S. Army</div>
+                        </div>
+                        <div class="exp-date">1990–1994</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Maintained critical medical equipment; Honorable Discharge</li>
+                        <li>Received two Army Achievement Medals for exceptional service</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <h3>Business & Freelance</h3>
+
+                <div class="exp-item highlight fade-up">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Founder & Owner</div>
+                            <div class="exp-org">Strokers Motorcycle Shop · Merced, CA</div>
+                        </div>
+                        <div class="exp-date">2003–2020</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Built and operated a profitable motorcycle service business for 18 years</li>
+                        <li>Implemented digital inventory management and CRM systems</li>
+                        <li>Managed vendor relationships, hiring, training, and customer satisfaction</li>
+                        <li>Developed the ownership mindset I now apply to every software project</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item fade-up">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Freelance Web Developer</div>
+                            <div class="exp-org">City of Manteca · DMIA · Watts Equipment</div>
+                        </div>
+                        <div class="exp-date">2024–Present</div>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>ADA/WCAG 2.1 AA compliance audit for municipal government site</li>
+                        <li>Built Google Apps Script event management automation for DMIA Cinco de Mayo</li>
+                        <li>Instagram feed integration and static redesign for HVAC company</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
-        <h2 class="section-title">Resume</h2>
-        <div class="resume-content">
-            <div class="resume-download">
-                <a href="/resume.pdf" class="btn btn-primary" target="_blank">Download PDF Resume</a>
+<!-- -- EDUCATION -- -->
+<section id="education">
+    <div class="section-wrap">
+        <p class="section-eyebrow">Arizona State University</p>
+        <h2 class="section-title">Education</h2>
+        <div class="edu-grid">
+            <div class="edu-card fade-up">
+                <div class="degree">Master of Computer Science (MCS)</div>
+                <div class="school">Arizona State University · AI Concentration</div>
+                <div class="dates">Aug 2025 – Dec 2026 · Currently Enrolled</div>
+                <span class="badge badge-green" style="font-family:JetBrains Mono,monospace;font-size:0.7rem">● In Progress</span>
+                <div class="courses">Advanced coursework in Machine Learning, Computer Vision, Natural Language Processing, Deep Learning, AI Ethics, Advanced Algorithms, Distributed Systems.</div>
             </div>
-            
-            <div class="resume-grid">
-                <div class="resume-section">
-                    <h3>Education</h3>
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">Master of Computer Science (MCS)</div>
-                                <div class="resume-company">Arizona State University • AI Concentration</div>
-                            </div>
-                            <div class="resume-date">Expected Dec 2026</div>
-                        </div>
-                        <div class="resume-description">
-                            Advanced Coursework: Machine Learning, Computer Vision, Natural Language Processing, 
-                            Deep Learning, AI Ethics, Advanced Algorithms, Distributed Systems
-                        </div>
-                    </div>
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">Bachelor of Science in Computer Science</div>
-                                <div class="resume-company">Arizona State University</div>
-                            </div>
-                            <div class="resume-date">Expected June 2025</div>
-                        </div>
-                        <div class="resume-description">
-                            Foundation: Data Structures & Algorithms, Object-Oriented Programming, 
-                            Database Management, Software Engineering, Computer Systems
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-section">
-                    <h3>Technical Projects</h3>
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">VidlyAI - AI Video Generation Platform</div>
-                                <div class="resume-company">Full-Stack Development</div>
-                            </div>
-                            <div class="resume-date">Dec 2024 - Present</div>
-                        </div>
-                        <div class="resume-description">
-                            <ul>
-                                <li>Architected and developed AI-powered video generation platform from concept to production</li>
-                                <li>Implemented machine learning algorithms for intelligent video processing and Ken Burns effects</li>
-                                <li>Built robust backend API using Spring Boot with PostgreSQL database</li>
-                                <li>Integrated FFmpeg for advanced video processing and AI-driven content optimization</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">Field Day - Wildlife Data Collection Tool</div>
-                                <div class="resume-company">Team Development</div>
-                            </div>
-                            <div class="resume-date">Jun 2024</div>
-                        </div>
-                        <div class="resume-description">
-                            <ul>
-                                <li>Developed core functionality for animal differentiation system in collaborative environment</li>
-                                <li>Implemented critical bug fixes improving system stability and performance</li>
-                                <li>Applied agile methodologies and Git version control for team coordination</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-section">
-                    <h3>Professional Experience</h3>
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">Business Owner & Operator</div>
-                                <div class="resume-company">Strokers Motorcycle Shop, Merced, CA</div>
-                            </div>
-                            <div class="resume-date">2003 - 2020</div>
-                        </div>
-                        <div class="resume-description">
-                            <ul>
-                                <li>Built and managed successful motorcycle service business for 18 years</li>
-                                <li>Implemented digital systems for inventory management and customer relationship management</li>
-                                <li>Coordinated with vendors, customers, and team members to ensure quality service delivery</li>
-                                <li>Achieved consistent customer satisfaction through effective leadership and problem-solving</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">Clinical Engineer</div>
-                                <div class="resume-company">Stanford University Hospital, Stanford, CA</div>
-                            </div>
-                            <div class="resume-date">Previous</div>
-                        </div>
-                        <div class="resume-description">
-                            <ul>
-                                <li>Maintained and repaired critical medical equipment with precise technical specifications</li>
-                                <li>Collaborated with medical staff to troubleshoot complex system issues</li>
-                                <li>Implemented systematic approaches to equipment maintenance and problem resolution</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="resume-section">
-                    <h3>Military Service</h3>
-                    <div class="resume-item">
-                        <div class="resume-header">
-                            <div>
-                                <div class="resume-title">United States Army</div>
-                                <div class="resume-company">Walter Reed Medical Hospital</div>
-                            </div>
-                            <div class="resume-date"></div>
-                        </div>
-                        <div class="resume-description">
-                            <ul>
-                                <li>Served with distinction at Walter Reed Medical Hospital</li>
-                                <li>Received two Army Achievement Medals for meritorious service</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="edu-card fade-up" style="transition-delay:0.1s">
+                <div class="degree">B.S. Software Engineering</div>
+                <div class="school">Arizona State University</div>
+                <div class="dates">Jan 2021 – May 2025 · Conferred</div>
+                <span class="gpa-badge">Summa Cum Laude · GPA 3.83 / 4.0</span>
+                <div class="courses">Data Structures & Algorithms, OOP, Database Management, Software Engineering, Security (CSE543/545 — pwn.college), Distributed Systems (gRPC), Compilers, Computer Systems.</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-content">
-            <p>I'm always interested in discussing new opportunities, collaborating on projects, or just connecting with fellow developers and entrepreneurs.</p>
+<!-- -- CONTACT -- -->
+<section id="contact">
+    <div class="section-wrap">
+        <div class="contact-inner fade-up">
+            <p class="section-eyebrow" style="text-align:center">Get In Touch</p>
+            <h2 class="section-title" style="text-align:center">Let's Connect</h2>
+            <p>I'm always interested in discussing engineering roles, AI projects, SaaS collaboration, or just connecting with fellow builders. Currently pursuing my M.S. and open to internships and full-time opportunities for 2026.</p>
             <div class="contact-links">
-                <a href="mailto:tlweave2@asu.edu" class="contact-link">Email Me</a>
-                <a href="https://www.linkedin.com/in/timweaversoftware/" class="contact-link" target="_blank">LinkedIn</a>
-                <a href="https://github.com/tlweave2" class="contact-link" target="_blank">GitHub</a>
+                <a href="mailto:tlweave2@asu.edu">✉ tlweave2@asu.edu</a>
+                <a href="https://www.linkedin.com/in/timweaversoftware/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/tlweave2" target="_blank">GitHub</a>
+                <a href="/timothy_weaver_mar26.pdf" target="_blank">Résumé PDF</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- -- FOOTER -- -->
+<footer>
+    © 2026 Timothy Weaver · timothylweaver.com · Built with Spring Boot + Thymeleaf
+</footer>
+
+<script>
+    // Intersection observer for fade-up animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Trigger hero immediately
+    document.querySelectorAll('#home .fade-up, #threads .fade-up').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 100);
+    });
+</script>
+
 </body>
 </html>
