@@ -467,6 +467,43 @@
 
         .project-link:hover { text-decoration: underline; }
 
+        .other-work {
+            margin-top: 2.5rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .other-work h3 {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .other-work ul { list-style: none; }
+
+        .other-work li {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.65;
+            padding-left: 1.1rem;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .other-work li::before {
+            content: '\2023';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .other-work strong { color: var(--text); font-weight: 600; }
+
         /* -- EXPERIENCE -- */
         .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
 
@@ -872,13 +909,14 @@
             <div class="project-card fade-up">
                 <div class="project-banner banner-ai">🎬</div>
                 <div class="project-body">
-                    <div class="project-label">Production SaaS · Live</div>
+                    <div class="project-label">Production SaaS · Live · Sole Developer</div>
                     <h3 class="project-title">VidlyAI</h3>
-                    <p class="project-desc">AI-powered video generation platform. Multi-LLM orchestration, Ken Burns effects via FFmpeg, Stripe billing, Redis caching, and containerized deployment. Built and operated end-to-end.</p>
+                    <p class="project-desc">AI video generation platform that turns a single text prompt into a finished short-form video. Built on a multi-stage LLM pipeline — Claude for story ideation, DeepSeek for generation — with cost-based provider routing, Redis distributed locking to stop duplicate concurrent renders, FFmpeg server-side rendering, Stripe billing, and JWT/OAuth2 auth. I own the architecture, infrastructure, billing, and support.</p>
                     <div class="tech-tags">
                         <span class="ttag">Spring Boot</span><span class="ttag">React</span>
-                        <span class="ttag">PostgreSQL</span><span class="ttag">FFmpeg</span>
-                        <span class="ttag">Redis</span><span class="ttag">Stripe</span><span class="ttag">Docker</span>
+                        <span class="ttag">PostgreSQL</span><span class="ttag">Redis</span>
+                        <span class="ttag">FFmpeg</span><span class="ttag">Claude API</span>
+                        <span class="ttag">DeepSeek</span><span class="ttag">Stripe</span><span class="ttag">Docker</span>
                     </div>
                     <a href="https://vidlyai.com" class="project-link" target="_blank">vidlyai.com →</a>
                 </div>
@@ -888,13 +926,14 @@
             <div class="project-card fade-up" style="transition-delay:0.08s">
                 <div class="project-banner banner-saas">📅</div>
                 <div class="project-body">
-                    <div class="project-label">Production SaaS · Live</div>
+                    <div class="project-label">Production SaaS · Live · Sole Developer</div>
                     <h3 class="project-title">useventful.com</h3>
-                    <p class="project-desc">Multi-tenant embeddable event calendar platform for communities, cities, and organizations. Free and Pro tiers with AI flyer scanning, moderation queue, custom branding, and iframe embed.</p>
+                    <p class="project-desc">Multi-tenant embeddable event calendar for communities, cities, and organizations. The AI flyer scanner reads an uploaded image through the Claude API and auto-populates a structured event listing, replacing manual data entry entirely. Free and Pro tiers with a moderation queue, custom branding, and iframe embed.</p>
                     <div class="tech-tags">
-                        <span class="ttag">Next.js</span><span class="ttag">Prisma</span>
-                        <span class="ttag">PostgreSQL</span><span class="ttag">Multi-tenant</span>
-                        <span class="ttag">AI OCR</span><span class="ttag">Railway</span>
+                        <span class="ttag">Next.js 16</span><span class="ttag">TypeScript</span>
+                        <span class="ttag">Prisma</span><span class="ttag">PostgreSQL</span>
+                        <span class="ttag">NextAuth v5</span><span class="ttag">Claude API</span>
+                        <span class="ttag">Multi-tenant</span><span class="ttag">Railway</span>
                     </div>
                     <a href="https://useventful.com" class="project-link" target="_blank">useventful.com →</a>
                 </div>
@@ -911,20 +950,21 @@
                         <span class="ttag">Python</span><span class="ttag">LLM APIs</span>
                         <span class="ttag">ReAct</span><span class="ttag">Tool Use</span><span class="ttag">Memory</span>
                     </div>
-                    <a href="https://github.com/tlweave2/agentforge" class="project-link" target="_blank">github.com/tlweave2 →</a>
+                    <a href="https://github.com/tlweave2/agentforge" class="project-link" target="_blank">github.com/tlweave2/agentforge →</a>
                 </div>
             </div>
 
-            <!-- Apify Hackathon -->
+            <!-- Field Day -->
             <div class="project-card fade-up" style="transition-delay:0.16s">
-                <div class="project-banner banner-ai">⚡</div>
+                <div class="project-banner banner-web">🦌</div>
                 <div class="project-body">
-                    <div class="project-label">Hackathon · 4-Person Team</div>
-                    <h3 class="project-title">Autonomous Job Application Agent</h3>
-                    <p class="project-desc">Apify Hackathon project: autonomous agent that authenticates to LinkedIn/Indeed via cookie injection, targets Easy Apply listings, and uses Claude to fill application forms.</p>
+                    <div class="project-label">ASU Capstone · Team of 5</div>
+                    <h3 class="project-title">Field Day</h3>
+                    <p class="project-desc">Offline-first progressive web app for wildlife researchers running capture-mark-recapture studies in remote locations with no connectivity. Data is captured and queued locally, then reconciled on reconnect. Sponsored by an ASU Biology professor.</p>
                     <div class="tech-tags">
-                        <span class="ttag">Apify</span><span class="ttag">Claude API</span>
-                        <span class="ttag">Python</span><span class="ttag">Agentic</span><span class="ttag">Automation</span>
+                        <span class="ttag">React</span><span class="ttag">Vite</span>
+                        <span class="ttag">Tailwind</span><span class="ttag">Firebase</span>
+                        <span class="ttag">Firestore</span><span class="ttag">Offline-first</span>
                     </div>
                 </div>
             </div>
@@ -935,7 +975,7 @@
                 <div class="project-body">
                     <div class="project-label">CSE531 · Distributed Systems</div>
                     <h3 class="project-title">Distributed gRPC Banking System</h3>
-                    <p class="project-desc">50-branch banking system built from scratch using gRPC and Lamport logical clocks. Achieved 100% consistency across all nodes. 20-hour intensive build session.</p>
+                    <p class="project-desc">50-branch banking system built from scratch using gRPC and Lamport logical clocks, achieving 100% consistency across all nodes under concurrent cross-branch transactions.</p>
                     <div class="tech-tags">
                         <span class="ttag">gRPC</span><span class="ttag">Python</span>
                         <span class="ttag">Lamport Clocks</span><span class="ttag">Protobuf</span>
@@ -943,50 +983,15 @@
                 </div>
             </div>
 
-            <!-- Mustang Arduino -->
-            <div class="project-card fade-up" style="transition-delay:0.24s">
-                <div class="project-banner banner-embed">🔧</div>
-                <div class="project-body">
-                    <div class="project-label">Embedded · Hardware</div>
-                    <h3 class="project-title">Water/Methanol Injection Controller</h3>
-                    <p class="project-desc">Arduino-based PWM pump controller that adds water/methanol injection to a supercharged Fox Body Mustang (Kenne Bell 2.2L). Triggered by a Hobbs switch, sized around AEM 500cc nozzles, and tuned using HP Tuners log analysis.</p>
-                    <div class="tech-tags">
-                        <span class="ttag">Arduino</span><span class="ttag">C</span>
-                        <span class="ttag">PWM</span><span class="ttag">ECU Tuning</span><span class="ttag">OpenSCAD</span>
-                    </div>
-                    <a href="https://github.com/tlweave2" class="project-link" target="_blank">View on GitHub →</a>
-                </div>
-            </div>
+        </div>
 
-            <!-- Freelance — Manteca -->
-            <div class="project-card fade-up" style="transition-delay:0.28s">
-                <div class="project-banner banner-web">🏛️</div>
-                <div class="project-body">
-                    <div class="project-label">Freelance · Municipal</div>
-                    <h3 class="project-title">City of Manteca ADA Site Audit</h3>
-                    <p class="project-desc">WCAG 2.1 AA / ADA compliance audit and remediation for a municipal government website. DOJ Title II research, department supervisor surveys, user database cleanup (84 active users).</p>
-                    <div class="tech-tags">
-                        <span class="ttag">ADA/WCAG</span><span class="ttag">HTML</span>
-                        <span class="ttag">Accessibility</span><span class="ttag">Government</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Portfolio -->
-            <div class="project-card fade-up" style="transition-delay:0.32s">
-                <div class="project-banner banner-web">💼</div>
-                <div class="project-body">
-                    <div class="project-label">Personal · Open Source</div>
-                    <h3 class="project-title">Portfolio Website</h3>
-                    <p class="project-desc">The site you're on: a Spring Boot and Thymeleaf app with custom CSS, deployed on Railway behind Cloudflare DNS. Source is public.</p>
-                    <div class="tech-tags">
-                        <span class="ttag">Spring Boot</span><span class="ttag">Thymeleaf</span>
-                        <span class="ttag">Railway</span><span class="ttag">Cloudflare</span>
-                    </div>
-                    <a href="https://github.com/tlweave2/tim-portfolio-website" class="project-link" target="_blank">View Code →</a>
-                </div>
-            </div>
-
+        <div class="other-work fade-up">
+            <h3>Also</h3>
+            <ul>
+                <li><strong>Autonomous job application agent</strong> — Apify hackathon, 4-person team. Agentic pipeline that targets Easy Apply listings and uses Claude to map a candidate profile onto arbitrary application forms.</li>
+                <li><strong>City of Manteca ADA site audit</strong> — freelance WCAG 2.1 AA compliance audit and remediation for a municipal government site, including DOJ Title II research and user database cleanup.</li>
+                <li><strong>Water/methanol injection controller</strong> — Arduino PWM pump controller for a supercharged Fox Body Mustang, triggered by a Hobbs switch and tuned from HP Tuners logs.</li>
+            </ul>
         </div>
     </div>
 </section>
