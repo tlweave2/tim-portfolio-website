@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timothy Weaver — Software Engineer</title>
+    <title>Timothy Weaver, Software Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
@@ -88,16 +88,6 @@
 
         section { padding: 5rem 0; }
 
-        .section-eyebrow {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-            font-weight: 500;
-        }
-
         .section-title {
             font-family: 'Crimson Text', serif;
             font-size: clamp(2rem, 5vw, 3.2rem);
@@ -119,16 +109,6 @@
             grid-template-columns: 1fr 340px;
             gap: 4rem;
             align-items: center;
-        }
-
-        .hero-eyebrow {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            font-weight: 500;
         }
 
         .hero-name {
@@ -157,28 +137,6 @@
             margin-bottom: 2rem;
         }
 
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .badge {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 0;
-            border: 1px solid var(--border);
-            color: var(--text-light);
-            letter-spacing: 0.05em;
-            background: var(--bg-light);
-            font-weight: 500;
-        }
-
-        .badge-amber { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
-        .badge-green { border-color: #6b7c59; color: #6b7c59; background: rgba(107, 124, 89, 0.06); }
-
         .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 
         .btn {
@@ -202,6 +160,17 @@
 
         .btn-amber:hover {
             background: var(--accent-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         .btn-ghost {
@@ -240,58 +209,6 @@
             position: relative;
             z-index: 1;
         }
-
-        /* Placeholder avatar when no image */
-        .profile-placeholder {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            border: 2px solid var(--border);
-            background: var(--bg-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 6rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* -- THREADS -- */
-        #threads { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg); }
-
-        .threads-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-        }
-
-        .thread {
-            padding: 2.5rem;
-            border-right: 1px solid var(--border);
-            position: relative;
-        }
-
-        .thread:last-child { border-right: none; }
-
-        .thread-num {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 2.2rem;
-            color: var(--accent);
-            opacity: 0.15;
-            line-height: 1;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .thread h3 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.2rem;
-            color: var(--text);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .thread p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
 
         /* -- ABOUT / STANFORD -- */
         .about-grid {
@@ -332,13 +249,9 @@
         }
 
         .highlight-card .card-meta {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            color: var(--accent);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--text-light);
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
         /* -- SKILLS -- */
@@ -365,14 +278,12 @@
         .skill-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
 
         .stag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.6rem;
+            font-size: 0.78rem;
+            padding: 0.2rem 0.55rem;
             border-radius: 0;
             background: white;
             color: var(--text-light);
             border: 1px solid var(--border);
-            font-weight: 500;
         }
 
         /* -- PROJECTS -- */
@@ -399,31 +310,12 @@
             border-color: var(--accent);
         }
 
-        .project-banner {
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            background: var(--bg-light);
-        }
-
-        .banner-saas { background: #eee5d9; }
-        .banner-ai { background: #e8dfd5; }
-        .banner-sys { background: #e0f5e9; }
-        .banner-web { background: #f7e6d3; }
-        .banner-embed { background: #f5e5e0; }
-
         .project-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
 
         .project-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            text-transform: uppercase;
+            font-size: 0.8rem;
+            color: var(--text-light);
             margin-bottom: 0.5rem;
-            font-weight: 600;
         }
 
         .project-title {
@@ -445,14 +337,12 @@
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
 
         .ttag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            padding: 0.25rem 0.65rem;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.55rem;
             border-radius: 0;
             background: var(--bg-light);
-            color: var(--accent);
+            color: var(--text-light);
             border: 1px solid var(--border);
-            font-weight: 500;
         }
 
         .project-link {
@@ -474,11 +364,9 @@
         }
 
         .other-work h3 {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            text-transform: uppercase;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.15rem;
+            color: var(--text);
             font-weight: 600;
             margin-bottom: 1rem;
         }
@@ -495,11 +383,13 @@
         }
 
         .other-work li::before {
-            content: '\2023';
+            content: '';
             position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 600;
+            left: 0.1rem;
+            top: 0.65em;
+            width: 4px;
+            height: 4px;
+            background: var(--border);
         }
 
         .other-work strong { color: var(--text); font-weight: 600; }
@@ -580,11 +470,13 @@
         }
 
         .exp-bullets li::before {
-            content: '›';
+            content: '';
             position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 600;
+            left: 0.1rem;
+            top: 0.65em;
+            width: 4px;
+            height: 4px;
+            background: var(--border);
         }
 
         /* -- EDUCATION -- */
@@ -629,16 +521,10 @@
         }
 
         .gpa-badge {
-            display: inline-block;
-            background: var(--accent-dim);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 0;
+            display: block;
+            color: var(--text-light);
+            font-size: 0.85rem;
             margin-bottom: 0.75rem;
-            font-weight: 600;
         }
 
         /* -- CONTACT -- */
@@ -700,20 +586,9 @@
         }
 
         /* -- ANIMATIONS -- */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
-        }
-
-        .fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* -- RESPONSIVE -- */
         @media (max-width: 900px) {
-            .hero-grid, .about-grid, .exp-grid, .edu-grid, .threads-grid {
+            .hero-grid, .about-grid, .exp-grid, .edu-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -721,9 +596,6 @@
                 display: flex;
                 justify-content: center;
             }
-
-            .thread { border-right: none; border-bottom: 1px solid var(--border); }
-            .thread:last-child { border-bottom: none; }
 
             .nav-links { display: none; }
         }
@@ -754,55 +626,24 @@
 <section id="home">
     <div class="section-wrap">
         <div class="hero-grid">
-            <div class="hero-content fade-up">
-                <div class="hero-eyebrow">Software Engineer · AI · Full-Stack</div>
+            <div class="hero-content">
                 <h1 class="hero-name">Timothy<br>Weaver</h1>
-                <p class="hero-tagline">Software Engineer with an unconventional background and a lot of shipped work.</p>
+                <p class="hero-tagline">I build full-stack and AI-powered applications, and I run two of them in production.</p>
                 <p class="hero-desc">
-                    B.S. Software Engineering, Summa Cum Laude, ASU — May 2025.<br>
-                    M.S. Computer Science (AI concentration), ASU — December 2026.<br>
-                    I build full-stack and AI-powered applications, and I care about getting them into production.
+                    B.S. Software Engineering, summa cum laude, Arizona State University, May 2025.
+                    Currently finishing an M.S. in Computer Science at ASU with an AI concentration,
+                    expected December 2026. Before software I ran my own business for 17 years, and
+                    before that I was a clinical engineer and a U.S. Army biomedical equipment technician.
                 </p>
-                <div class="hero-badges">
-                    <span class="badge badge-amber">✓ BS Conferred May 2025</span>
-                    <span class="badge badge-green">● MS in Progress</span>
-                    <span class="badge">GPA 3.83 / 4.0</span>
-                    <span class="badge">US Army Veteran</span>
-                    <span class="badge">Stanford Medicine</span>
-                </div>
                 <div class="cta-row">
-                    <a href="#projects" class="btn btn-amber">View Projects →</a>
-                    <a href="/timothy_weaver_mar26.pdf" class="btn btn-outline" target="_blank">Download Résumé</a>
-                    <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+                    <a href="#projects" class="btn btn-amber">View projects</a>
+                    <a href="/timothy_weaver_mar26.pdf" class="btn btn-outline" target="_blank">Download résumé</a>
                 </div>
             </div>
-            <div class="hero-img-box fade-up" style="transition-delay:0.15s">
-                <!-- Replace src with your actual photo path -->
+            <div class="hero-img-box">
                 <img src="/images/profile.jpg" alt="Timothy Weaver" class="profile-pic"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <div class="profile-placeholder" style="display:none">👨‍💻</div>
+                     onerror="this.style.display='none';">
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- -- DIFFERENTIATORS -- -->
-<section id="threads">
-    <div class="threads-grid">
-        <div class="thread fade-up">
-            <div class="thread-num">01</div>
-            <h3>I've actually shipped things.</h3>
-            <p>VidlyAI and useventful.com are live, paying-customer products — not demos. Both built end-to-end: auth, billing, AI features, infra, and ongoing maintenance. I know the difference between code that works in dev and code that works in production.</p>
-        </div>
-        <div class="thread fade-up" style="transition-delay:0.1s">
-            <div class="thread-num">02</div>
-            <h3>Broad background, genuinely.</h3>
-            <p>17 years running a business before pivoting to software. Clinical engineering at Stanford before that, and the Army before that. I bring a different frame to problems — how do real systems fail, who depends on them, and what does "done" actually mean?</p>
-        </div>
-        <div class="thread fade-up" style="transition-delay:0.2s">
-            <div class="thread-num">03</div>
-            <h3>Full stack, top to bottom.</h3>
-            <p>Spring Boot and React for web apps. Python and PyTorch for ML. Arduino and embedded C for hardware. gRPC and distributed systems in coursework. I move comfortably between layers of the stack, and I pick up new ones fast.</p>
         </div>
     </div>
 </section>
@@ -810,24 +651,23 @@
 <!-- -- ABOUT -- -->
 <section id="about">
     <div class="section-wrap">
-        <p class="section-eyebrow">Background</p>
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
-            <div class="about-text fade-up">
-                <p>My path into software engineering is a bit unconventional. Before writing production code, I spent 17 years as the owner of Strokers, a motorcycle service business in Merced, CA — and before that I was a clinical engineer maintaining medical equipment at Stanford University Hospital and Walter Reed Army Medical Center.</p>
+            <div class="about-text">
+                <p>I came to software late. Before writing production code I spent 17 years as the owner of Strokers, a motorcycle service business in Merced, CA, and before that I was a clinical engineer maintaining medical equipment at Stanford University Hospital and Walter Reed Army Medical Center.</p>
 
                 <p>I came back to school in my 40s, finished a B.S. in Software Engineering at ASU with a 3.83 GPA, and I'm now working through an M.S. in CS with an AI concentration. The business and engineering background informs how I approach software: I think about what actually needs to work, for whom, and what breaks first under real load.</p>
 
-                <p>My current focus is AI and full-stack development. I've shipped two production SaaS products, built an open-source agent framework, competed in an AI hackathon, and done coursework covering everything from binary exploitation to distributed systems to deep learning.</p>
+                <p>These days I work on AI and full-stack development. Two of the things I've built, VidlyAI and useventful.com, are live products with paying customers rather than demos, and I handle their infrastructure and support myself.</p>
 
                 <div class="highlight-card" style="margin-top:1.5rem">
                     <div class="card-meta">Stanford Medicine / Lucile Packard Children's Hospital</div>
-                    <h4>Clinical Engineering — PiNO System</h4>
-                    <p>Before software, I spent years as a clinical engineer maintaining critical medical equipment. At Stanford I worked on a portable inhaled nitric oxide delivery system (PiNO) for neonates — a project that went through FDA evaluation and a multicenter trial whose results were published in the New England Journal of Medicine. It's an unusual background for a software engineer, and it shapes how I think about reliability.</p>
+                    <h4>Clinical engineering: the PiNO system</h4>
+                    <p>At Stanford I assembled and calibrated a portable inhaled nitric oxide delivery system (PiNO) for neonates. It went through FDA evaluation and a multicenter trial whose results were published in the New England Journal of Medicine. Working on equipment where a failure reaches a patient set my expectations for what reliability means, and I have not really adjusted them since.</p>
                 </div>
             </div>
 
-            <div class="fade-up" style="transition-delay:0.1s">
+            <div>
                 <div class="skills-panel">
                     <div class="skill-row">
                         <span class="skill-name">Languages</span>
@@ -901,30 +741,27 @@
 <!-- -- PROJECTS -- -->
 <section id="projects">
     <div class="section-wrap">
-        <p class="section-eyebrow">Featured Work</p>
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
 
             <!-- VidlyAI -->
-            <div class="project-card fade-up">
-                <div class="project-banner banner-ai">🎬</div>
+            <div class="project-card">
                 <div class="project-body">
                     <div class="project-label">Production SaaS · Live · Sole Developer</div>
                     <h3 class="project-title">VidlyAI</h3>
-                    <p class="project-desc">AI video generation platform that turns a single text prompt into a finished short-form video. Built on a multi-stage LLM pipeline — Claude for story ideation, DeepSeek for generation — with cost-based provider routing, Redis distributed locking to stop duplicate concurrent renders, FFmpeg server-side rendering, Stripe billing, and JWT/OAuth2 auth. I own the architecture, infrastructure, billing, and support.</p>
+                    <p class="project-desc">AI video generation platform that turns a single text prompt into a finished short-form video. It runs a multi-stage LLM pipeline (Claude for story ideation, DeepSeek for generation) with cost-based provider routing, Redis distributed locking to stop duplicate concurrent renders, FFmpeg server-side rendering, Stripe billing, and JWT/OAuth2 auth. I own the architecture, infrastructure, billing, and support.</p>
                     <div class="tech-tags">
                         <span class="ttag">Spring Boot</span><span class="ttag">React</span>
                         <span class="ttag">PostgreSQL</span><span class="ttag">Redis</span>
                         <span class="ttag">FFmpeg</span><span class="ttag">Claude API</span>
                         <span class="ttag">DeepSeek</span><span class="ttag">Stripe</span><span class="ttag">Docker</span>
                     </div>
-                    <a href="https://vidlyai.com" class="project-link" target="_blank">vidlyai.com →</a>
+                    <a href="https://vidlyai.com" class="project-link" target="_blank">vidlyai.com</a>
                 </div>
             </div>
 
             <!-- useventful.com -->
-            <div class="project-card fade-up" style="transition-delay:0.08s">
-                <div class="project-banner banner-saas">📅</div>
+            <div class="project-card">
                 <div class="project-body">
                     <div class="project-label">Production SaaS · Live · Sole Developer</div>
                     <h3 class="project-title">useventful.com</h3>
@@ -935,13 +772,12 @@
                         <span class="ttag">NextAuth v5</span><span class="ttag">Claude API</span>
                         <span class="ttag">Multi-tenant</span><span class="ttag">Railway</span>
                     </div>
-                    <a href="https://useventful.com" class="project-link" target="_blank">useventful.com →</a>
+                    <a href="https://useventful.com" class="project-link" target="_blank">useventful.com</a>
                 </div>
             </div>
 
             <!-- AgentForge -->
-            <div class="project-card fade-up" style="transition-delay:0.12s">
-                <div class="project-banner banner-ai">🤖</div>
+            <div class="project-card">
                 <div class="project-body">
                     <div class="project-label">Open Source · GitHub</div>
                     <h3 class="project-title">AgentForge</h3>
@@ -950,13 +786,12 @@
                         <span class="ttag">Python</span><span class="ttag">LLM APIs</span>
                         <span class="ttag">ReAct</span><span class="ttag">Tool Use</span><span class="ttag">Memory</span>
                     </div>
-                    <a href="https://github.com/tlweave2/agentforge" class="project-link" target="_blank">github.com/tlweave2/agentforge →</a>
+                    <a href="https://github.com/tlweave2/agentforge" class="project-link" target="_blank">github.com/tlweave2/agentforge</a>
                 </div>
             </div>
 
             <!-- Field Day -->
-            <div class="project-card fade-up" style="transition-delay:0.16s">
-                <div class="project-banner banner-web">🦌</div>
+            <div class="project-card">
                 <div class="project-body">
                     <div class="project-label">ASU Capstone · Team of 5</div>
                     <h3 class="project-title">Field Day</h3>
@@ -970,8 +805,7 @@
             </div>
 
             <!-- Distributed Banking -->
-            <div class="project-card fade-up" style="transition-delay:0.2s">
-                <div class="project-banner banner-sys">🏦</div>
+            <div class="project-card">
                 <div class="project-body">
                     <div class="project-label">CSE531 · Distributed Systems</div>
                     <h3 class="project-title">Distributed gRPC Banking System</h3>
@@ -985,12 +819,12 @@
 
         </div>
 
-        <div class="other-work fade-up">
+        <div class="other-work">
             <h3>Also</h3>
             <ul>
-                <li><strong>Autonomous job application agent</strong> — Apify hackathon, 4-person team. Agentic pipeline that targets Easy Apply listings and uses Claude to map a candidate profile onto arbitrary application forms.</li>
-                <li><strong>City of Manteca ADA site audit</strong> — freelance WCAG 2.1 AA compliance audit and remediation for a municipal government site, including DOJ Title II research and user database cleanup.</li>
-                <li><strong>Water/methanol injection controller</strong> — Arduino PWM pump controller for a supercharged Fox Body Mustang, triggered by a Hobbs switch and tuned from HP Tuners logs.</li>
+                <li><strong>Autonomous job application agent.</strong> Apify hackathon, 4-person team. Agentic pipeline that targets Easy Apply listings and uses Claude to map a candidate profile onto arbitrary application forms.</li>
+                <li><strong>City of Manteca ADA site audit.</strong> Freelance WCAG 2.1 AA compliance audit and remediation for a municipal government site, including DOJ Title II research and user database cleanup.</li>
+                <li><strong>Water/methanol injection controller.</strong> Arduino PWM pump controller for a supercharged Fox Body Mustang, triggered by a Hobbs switch and tuned from HP Tuners logs.</li>
             </ul>
         </div>
     </div>
@@ -999,13 +833,12 @@
 <!-- -- EXPERIENCE -- -->
 <section id="experience">
     <div class="section-wrap">
-        <p class="section-eyebrow">Background</p>
         <h2 class="section-title">Experience</h2>
         <div class="exp-grid">
             <div>
                 <h3>Engineering & Technology</h3>
 
-                <div class="exp-item highlight fade-up">
+                <div class="exp-item highlight">
                     <div class="exp-header">
                         <div>
                             <div class="exp-title">Clinical Engineer</div>
@@ -1015,13 +848,13 @@
                     </div>
                     <ul class="exp-bullets">
                         <li>Maintained critical medical equipment across OR, ICU, and NICU departments</li>
-                        <li>Worked on portable inhaled nitric oxide (PiNO) delivery system — went through FDA evaluation and a multicenter trial published in NEJM</li>
+                        <li>Worked on a portable inhaled nitric oxide (PiNO) delivery system that went through FDA evaluation and a multicenter trial published in NEJM</li>
                         <li>Served as Department Head, Mt. Zion Hospital, San Francisco</li>
                         <li>Ensured JCAHO compliance across all managed equipment</li>
                     </ul>
                 </div>
 
-                <div class="exp-item fade-up">
+                <div class="exp-item">
                     <div class="exp-header">
                         <div>
                             <div class="exp-title">Biomedical Equipment Technician</div>
@@ -1039,7 +872,7 @@
             <div>
                 <h3>Business & Freelance</h3>
 
-                <div class="exp-item highlight fade-up">
+                <div class="exp-item highlight">
                     <div class="exp-header">
                         <div>
                             <div class="exp-title">Founder & Owner</div>
@@ -1055,7 +888,7 @@
                     </ul>
                 </div>
 
-                <div class="exp-item fade-up">
+                <div class="exp-item">
                     <div class="exp-header">
                         <div>
                             <div class="exp-title">Freelance Web Developer</div>
@@ -1077,22 +910,20 @@
 <!-- -- EDUCATION -- -->
 <section id="education">
     <div class="section-wrap">
-        <p class="section-eyebrow">Arizona State University</p>
         <h2 class="section-title">Education</h2>
         <div class="edu-grid">
-            <div class="edu-card fade-up">
+            <div class="edu-card">
                 <div class="degree">Master of Computer Science (MCS)</div>
                 <div class="school">Arizona State University · AI Concentration</div>
-                <div class="dates">Aug 2025 – Dec 2026 · Currently Enrolled</div>
-                <span class="badge badge-green" style="font-family:JetBrains Mono,monospace;font-size:0.7rem">● In Progress</span>
+                <div class="dates">Aug 2025 to Dec 2026, currently enrolled</div>
                 <div class="courses">Advanced coursework in Machine Learning, Computer Vision, Natural Language Processing, Deep Learning, AI Ethics, Advanced Algorithms, Distributed Systems.</div>
             </div>
-            <div class="edu-card fade-up" style="transition-delay:0.1s">
+            <div class="edu-card">
                 <div class="degree">B.S. Software Engineering</div>
                 <div class="school">Arizona State University</div>
-                <div class="dates">Jan 2021 – May 2025 · Conferred</div>
-                <span class="gpa-badge">Summa Cum Laude · GPA 3.83 / 4.0</span>
-                <div class="courses">Data Structures & Algorithms, OOP, Database Management, Software Engineering, Security (CSE543/545 — pwn.college), Distributed Systems (gRPC), Compilers, Computer Systems.</div>
+                <div class="dates">Jan 2021 to May 2025, conferred</div>
+                <span class="gpa-badge">Summa cum laude, GPA 3.83 / 4.0</span>
+                <div class="courses">Data Structures & Algorithms, OOP, Database Management, Software Engineering, Security (CSE543/545, pwn.college), Distributed Systems (gRPC), Compilers, Computer Systems.</div>
             </div>
         </div>
     </div>
@@ -1101,15 +932,14 @@
 <!-- -- CONTACT -- -->
 <section id="contact">
     <div class="section-wrap">
-        <div class="contact-inner fade-up">
-            <p class="section-eyebrow" style="text-align:center">Get In Touch</p>
-            <h2 class="section-title" style="text-align:center">Let's Connect</h2>
+        <div class="contact-inner">
+            <h2 class="section-title" style="text-align:center">Get in touch</h2>
             <p>I'm always interested in discussing engineering roles, AI projects, SaaS collaboration, or just connecting with fellow builders. I graduate with my M.S. in December 2026 and I'm looking for full-time software engineering roles starting early 2027.</p>
             <div class="contact-links">
-                <a href="mailto:tlweave2@asu.edu">✉ tlweave2@asu.edu</a>
+                <a href="mailto:tlweave2@asu.edu">tlweave2@asu.edu</a>
                 <a href="https://www.linkedin.com/in/timweaversoftware/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/tlweave2" target="_blank">GitHub</a>
-                <a href="/timothy_weaver_mar26.pdf" target="_blank" class="clink"><span>Résumé PDF</span><span class="clink-arrow">→</span></a>
+                <a href="/timothy_weaver_mar26.pdf" target="_blank">Résumé (PDF)</a>
             </div>
         </div>
     </div>
@@ -1120,23 +950,7 @@
     © 2026 Timothy Weaver · timothylweaver.com · Built with Spring Boot + Thymeleaf
 </footer>
 
-<script>
-    // Intersection observer for fade-up animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Trigger hero immediately
-    document.querySelectorAll('#home .fade-up, #threads .fade-up').forEach(el => {
-        setTimeout(() => el.classList.add('visible'), 100);
-    });
-</script>
 
 </body>
 </html>
