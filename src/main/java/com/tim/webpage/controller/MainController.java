@@ -15,5 +15,8 @@ public class MainController {
         return "home";
     }
 
-    
+    @GetMapping("/resume")
+    public String resume() {
+        return "resume";
+    }
 }
