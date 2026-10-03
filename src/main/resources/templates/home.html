@@ -106,9 +106,7 @@
 
         .hero-grid {
             display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: 1fr;
         }
 
         .hero-name {
@@ -185,32 +183,7 @@
             background: var(--accent-dim);
         }
 
-        .hero-img-box {
-            position: relative;
-        }
-
-        .hero-img-box::before {
-            content: '';
-            position: absolute;
-            inset: -12px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-
-        .profile-pic {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            display: block;
-            border: 2px solid var(--border);
-            background: var(--bg-light);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* -- ABOUT / STANFORD -- */
+        /* -- ABOUT -- */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -357,42 +330,6 @@
 
         .project-link:hover { text-decoration: underline; }
 
-        .other-work {
-            margin-top: 2.5rem;
-            padding-top: 1.75rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .other-work h3 {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.15rem;
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .other-work ul { list-style: none; }
-
-        .other-work li {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            line-height: 1.65;
-            padding-left: 1.1rem;
-            margin-bottom: 0.6rem;
-            position: relative;
-        }
-
-        .other-work li::before {
-            content: '';
-            position: absolute;
-            left: 0.1rem;
-            top: 0.65em;
-            width: 4px;
-            height: 4px;
-            background: var(--border);
-        }
-
-        .other-work strong { color: var(--text); font-weight: 600; }
 
         /* -- EXPERIENCE -- */
         .exp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2.5rem; }
@@ -592,10 +529,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .hero-img-box {
-                display: flex;
-                justify-content: center;
-            }
 
             .nav-links { display: none; }
         }
@@ -630,19 +563,14 @@
                 <h1 class="hero-name">Timothy<br>Weaver</h1>
                 <p class="hero-tagline">I build full-stack and AI-powered applications, and I run two of them in production.</p>
                 <p class="hero-desc">
-                    B.S. Software Engineering, summa cum laude, Arizona State University, May 2025.
-                    Currently finishing a Master of Computer Science at ASU with an AI concentration,
-                    expected December 2026. Before software I ran my own business for 17 years, and
-                    before that I was a clinical engineer and a U.S. Army biomedical equipment technician.
+                    Finishing a Master of Computer Science at Arizona State University, expected
+                    December 2026, after a B.S. in Software Engineering, summa cum laude.
+                    U.S. Army veteran. Open to relocation.
                 </p>
                 <div class="cta-row">
                     <a href="#projects" class="btn btn-amber">View projects</a>
                     <a href="/timothy_weaver_resume.pdf" class="btn btn-outline" target="_blank">Download résumé</a>
                 </div>
-            </div>
-            <div class="hero-img-box">
-                <img src="/images/profile.jpg" alt="Timothy Weaver" class="profile-pic"
-                     onerror="this.style.display='none';">
             </div>
         </div>
     </div>
@@ -654,17 +582,11 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p>I came to software late. Before writing production code I spent 17 years as the owner of Strokers, a motorcycle service business in Merced, CA, and before that I was a clinical engineer maintaining medical equipment at Stanford University Hospital and Walter Reed Army Medical Center.</p>
+                <p>I build and run production software end to end. VidlyAI is an AI video editor that turns raw phone clips into captioned vertical reels: a Spring Boot and PostgreSQL API, React web app, iOS and Android apps, and a Python video pipeline using speech-to-text, computer vision, and Claude.</p>
 
-                <p>I came back to school in my 40s, finished a B.S. in Software Engineering at ASU with a 3.83 GPA, and I'm now working through a Master of Computer Science with an AI concentration. The business and engineering background informs how I approach software: I think about what actually needs to work, for whom, and what breaks first under real load.</p>
+                <p>Eventful is a multi-tenant event calendar on Next.js, TypeScript, and PostgreSQL, with AI flyer scanning that fills in event listings from an uploaded image. Both are live, and I handle their architecture, infrastructure, and support myself.</p>
 
-                <p>These days I work on AI and full-stack development. Two of the things I've built, VidlyAI and useventful.com, are live products with paying customers rather than demos, and I handle their infrastructure and support myself.</p>
-
-                <div class="highlight-card" style="margin-top:1.5rem">
-                    <div class="card-meta">Stanford Medicine / Lucile Packard Children's Hospital</div>
-                    <h4>Clinical engineering: the PiNO system</h4>
-                    <p>At Stanford I assembled and calibrated a portable inhaled nitric oxide delivery system (PiNO) for neonates. It went through FDA evaluation and a multicenter trial whose results were published in the New England Journal of Medicine. Working on equipment where a failure reaches a patient set my expectations for what reliability means, and I have not really adjusted them since.</p>
-                </div>
+                <p>I'm finishing a Master of Computer Science at Arizona State in December 2026 (GPA 3.79), after a B.S. in Software Engineering, summa cum laude.</p>
             </div>
 
             <div>
@@ -673,63 +595,46 @@
                         <span class="skill-name">Languages</span>
                         <div class="skill-tags">
                             <span class="stag">Java</span><span class="stag">Python</span>
-                            <span class="stag">C++</span><span class="stag">JavaScript</span><span class="stag">SQL</span>
+                            <span class="stag">TypeScript</span><span class="stag">JavaScript</span><span class="stag">SQL</span>
                         </div>
                     </div>
                     <div class="skill-row">
                         <span class="skill-name">Frameworks</span>
                         <div class="skill-tags">
-                            <span class="stag">Spring Boot</span><span class="stag">React</span>
-                            <span class="stag">Node.js</span><span class="stag">Next.js</span>
+                            <span class="stag">Spring Boot</span><span class="stag">Next.js</span>
+                            <span class="stag">React</span><span class="stag">Node.js</span><span class="stag">Capacitor</span>
                         </div>
                     </div>
                     <div class="skill-row">
-                        <span class="skill-name">AI / ML</span>
+                        <span class="skill-name">Data &amp; Infra</span>
                         <div class="skill-tags">
-                            <span class="stag">PyTorch</span><span class="stag">TensorFlow</span>
-                            <span class="stag">OpenCV</span><span class="stag">Scikit-learn</span>
+                            <span class="stag">PostgreSQL</span><span class="stag">Redis</span>
+                            <span class="stag">Prisma</span><span class="stag">MongoDB</span>
+                            <span class="stag">Docker</span><span class="stag">AWS S3</span>
+                            <span class="stag">Cloudflare R2</span><span class="stag">GitHub Actions</span>
+                            <span class="stag">Linux</span>
                         </div>
                     </div>
                     <div class="skill-row">
-                        <span class="skill-name">LLM / Agents</span>
+                        <span class="skill-name">LLM &amp; AI</span>
                         <div class="skill-tags">
-                            <span class="stag">Claude API</span><span class="stag">OpenAI</span>
-                            <span class="stag">Ollama</span><span class="stag">LangChain</span>
+                            <span class="stag">Claude API</span><span class="stag">Structured LLM output</span>
+                            <span class="stag">faster-whisper</span><span class="stag">ONNX</span>
+                            <span class="stag">OpenCV</span>
                         </div>
                     </div>
                     <div class="skill-row">
-                        <span class="skill-name">Databases</span>
+                        <span class="skill-name">Media</span>
                         <div class="skill-tags">
-                            <span class="stag">PostgreSQL</span><span class="stag">MySQL</span>
-                            <span class="stag">MongoDB</span><span class="stag">Redis</span>
+                            <span class="stag">FFmpeg</span><span class="stag">RNNoise</span>
                         </div>
                     </div>
                     <div class="skill-row">
-                        <span class="skill-name">Infrastructure</span>
+                        <span class="skill-name">Product</span>
                         <div class="skill-tags">
-                            <span class="stag">Docker</span><span class="stag">Railway</span>
-                            <span class="stag">Linux</span><span class="stag">Cloudflare</span>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <span class="skill-name">Security</span>
-                        <div class="skill-tags">
-                            <span class="stag">Binary Exploit</span><span class="stag">ROP</span>
-                            <span class="stag">Web Exploit</span><span class="stag">Scapy</span>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <span class="skill-name">Embedded</span>
-                        <div class="skill-tags">
-                            <span class="stag">Arduino</span><span class="stag">C</span>
-                            <span class="stag">PWM</span><span class="stag">OpenSCAD</span>
-                        </div>
-                    </div>
-                    <div class="skill-row">
-                        <span class="skill-name">Methodology</span>
-                        <div class="skill-tags">
-                            <span class="stag">Agile/Scrum</span><span class="stag">TDD</span>
-                            <span class="stag">REST APIs</span><span class="stag">gRPC</span>
+                            <span class="stag">REST APIs</span><span class="stag">JWT/OAuth2</span>
+                            <span class="stag">Stripe</span><span class="stag">Multi-tenancy</span>
+                            <span class="stag">iOS &amp; Android</span>
                         </div>
                     </div>
                 </div>
@@ -749,12 +654,12 @@
                 <div class="project-body">
                     <div class="project-label">Production SaaS · Live · Sole Developer</div>
                     <h3 class="project-title">VidlyAI</h3>
-                    <p class="project-desc">AI video generation platform that turns a single text prompt into a finished short-form video. It runs a multi-stage LLM pipeline (Claude for story ideation, DeepSeek for generation) with cost-based provider routing, Redis distributed locking to stop duplicate concurrent renders, FFmpeg server-side rendering, Stripe billing, and JWT/OAuth2 auth. I own the architecture, infrastructure, billing, and support.</p>
+                    <p class="project-desc">AI video editor that turns raw phone clips into captioned vertical reels. A Python worker runs a nine-stage pipeline: faster-whisper word-level transcription, OpenCV face tracking, and speaker detection, with Claude returning an edit decision list that is validated against the source clips and rendered with FFmpeg. Web, iOS, and Android apps sit on a Spring Boot and PostgreSQL API.</p>
                     <div class="tech-tags">
-                        <span class="ttag">Spring Boot</span><span class="ttag">React</span>
-                        <span class="ttag">PostgreSQL</span><span class="ttag">Redis</span>
-                        <span class="ttag">FFmpeg</span><span class="ttag">Claude API</span>
-                        <span class="ttag">DeepSeek</span><span class="ttag">Stripe</span><span class="ttag">Docker</span>
+                        <span class="ttag">Spring Boot</span><span class="ttag">PostgreSQL</span>
+                        <span class="ttag">React</span><span class="ttag">Capacitor</span>
+                        <span class="ttag">Python</span><span class="ttag">faster-whisper</span>
+                        <span class="ttag">OpenCV</span><span class="ttag">FFmpeg</span><span class="ttag">Claude API</span>
                     </div>
                     <a href="https://vidlyai.com" class="project-link" target="_blank">vidlyai.com</a>
                 </div>
@@ -764,8 +669,8 @@
             <div class="project-card">
                 <div class="project-body">
                     <div class="project-label">Production SaaS · Live · Sole Developer</div>
-                    <h3 class="project-title">useventful.com</h3>
-                    <p class="project-desc">Multi-tenant embeddable event calendar for communities, cities, and organizations. The AI flyer scanner reads an uploaded image through the Claude API and auto-populates a structured event listing, replacing manual data entry entirely. Free and Pro tiers with a moderation queue, custom branding, and iframe embed.</p>
+                    <h3 class="project-title">Eventful</h3>
+                    <p class="project-desc">Multi-tenant embeddable event calendar for communities, cities, and organizations. The AI flyer scanner reads an uploaded image through the Claude API and auto-populates a structured event listing, replacing manual data entry. Free and Pro tiers with a moderation queue, custom branding, and iframe embed.</p>
                     <div class="tech-tags">
                         <span class="ttag">Next.js 16</span><span class="ttag">TypeScript</span>
                         <span class="ttag">Prisma</span><span class="ttag">PostgreSQL</span>
@@ -804,29 +709,9 @@
                 </div>
             </div>
 
-            <!-- Distributed Banking -->
-            <div class="project-card">
-                <div class="project-body">
-                    <div class="project-label">CSE531 · Distributed Systems</div>
-                    <h3 class="project-title">Distributed gRPC Banking System</h3>
-                    <p class="project-desc">50-branch banking system built from scratch using gRPC and Lamport logical clocks, achieving 100% consistency across all nodes under concurrent cross-branch transactions.</p>
-                    <div class="tech-tags">
-                        <span class="ttag">gRPC</span><span class="ttag">Python</span>
-                        <span class="ttag">Lamport Clocks</span><span class="ttag">Protobuf</span>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
-        <div class="other-work">
-            <h3>Also</h3>
-            <ul>
-                <li><strong>Autonomous job application agent.</strong> Apify hackathon, 4-person team. Agentic pipeline that targets Easy Apply listings and uses Claude to map a candidate profile onto arbitrary application forms.</li>
-                <li><strong>City of Manteca ADA site audit.</strong> Freelance WCAG 2.1 AA compliance audit and remediation for a municipal government site, including DOJ Title II research and user database cleanup.</li>
-                <li><strong>Water/methanol injection controller.</strong> Arduino PWM pump controller for a supercharged Fox Body Mustang, triggered by a Hobbs switch and tuned from HP Tuners logs.</li>
-            </ul>
-        </div>
     </div>
 </section>
 
@@ -836,70 +721,48 @@
         <h2 class="section-title">Experience</h2>
         <div class="exp-grid">
             <div>
-                <h3>Engineering & Technology</h3>
-
                 <div class="exp-item highlight">
                     <div class="exp-header">
                         <div>
-                            <div class="exp-title">Clinical Engineer</div>
-                            <div class="exp-org">Stanford University Hospital / Lucile Packard Children's Hospital</div>
+                            <div class="exp-title">Sole Developer</div>
+                            <div class="exp-org">VidlyAI · vidlyai.com</div>
                         </div>
-                        <div class="exp-date">1995–2002</div>
+                        <div class="exp-date">Oct 2024–Present</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li>Maintained critical medical equipment across OR, ICU, and NICU departments</li>
-                        <li>Worked on a portable inhaled nitric oxide (PiNO) delivery system that went through FDA evaluation and a multicenter trial published in NEJM</li>
-                        <li>Served as Department Head, Mt. Zion Hospital, San Francisco</li>
-                        <li>Ensured JCAHO compliance across all managed equipment</li>
-                    </ul>
-                </div>
-
-                <div class="exp-item">
-                    <div class="exp-header">
-                        <div>
-                            <div class="exp-title">Biomedical Equipment Technician</div>
-                            <div class="exp-org">Walter Reed Army Medical Center · U.S. Army</div>
-                        </div>
-                        <div class="exp-date">1990–1994</div>
-                    </div>
-                    <ul class="exp-bullets">
-                        <li>Maintained critical medical equipment; Honorable Discharge</li>
-                        <li>Received two Army Achievement Medals for exceptional service</li>
+                        <li>Designed and shipped an AI video editor that turns raw phone clips into captioned vertical reels, built on a Spring Boot/PostgreSQL API, a React web app, Capacitor iOS and Android apps, and a Python video worker</li>
+                        <li>Stored each reel as an edit decision list so user edits re-render without re-running transcription or calling the AI; cached render segments reuse unchanged work</li>
+                        <li>Decoupled the API and worker through a PostgreSQL job queue (FOR UPDATE SKIP LOCKED) with stale-job recovery; deploys run through GitHub Actions, gated on 331 engine tests, with automatic rollback</li>
+                        <li>Replaced the audio cleanup chain with RNNoise neural denoising, raising the voice-to-background gap from 14.5 dB to 20.4 dB on a speech-in-crowd test clip</li>
                     </ul>
                 </div>
             </div>
 
             <div>
-                <h3>Business & Freelance</h3>
-
                 <div class="exp-item highlight">
                     <div class="exp-header">
                         <div>
-                            <div class="exp-title">Founder & Owner</div>
-                            <div class="exp-org">Strokers Motorcycle Shop · Merced, CA</div>
+                            <div class="exp-title">Sole Developer</div>
+                            <div class="exp-org">Eventful · useventful.com</div>
                         </div>
-                        <div class="exp-date">2003–2020</div>
+                        <div class="exp-date">Jan 2026–Present</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li>Built and operated a profitable motorcycle service business for 17 years</li>
-                        <li>Implemented digital inventory management and CRM systems</li>
-                        <li>Managed vendor relationships, hiring, training, and customer satisfaction</li>
-                        <li>Developed the ownership mindset I now apply to every software project</li>
+                        <li>Launched a live multi-tenant community event calendar SaaS on Next.js 16, TypeScript, PostgreSQL/Prisma, and NextAuth v5</li>
+                        <li>Built AI flyer scanning on the Anthropic Claude API that reads an uploaded image and auto-populates a structured event listing</li>
                     </ul>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-header">
                         <div>
-                            <div class="exp-title">Freelance Web Developer</div>
-                            <div class="exp-org">City of Manteca · DMIA · Watts Equipment</div>
+                            <div class="exp-title">Software Engineer</div>
+                            <div class="exp-org">Field Day · ASU Capstone, team of 5</div>
                         </div>
-                        <div class="exp-date">2024–Present</div>
+                        <div class="exp-date">Jun 2024–May 2025</div>
                     </div>
                     <ul class="exp-bullets">
-                        <li>ADA/WCAG 2.1 AA compliance audit for municipal government site</li>
-                        <li>Built Google Apps Script event management automation for DMIA Cinco de Mayo</li>
-                        <li>Instagram feed integration and static redesign for HVAC company</li>
+                        <li>Built an offline-first Progressive Web App (React, Vite, Tailwind, Firebase/Firestore) for wildlife researchers running capture-mark-recapture studies in remote locations without connectivity</li>
                     </ul>
                 </div>
             </div>
@@ -913,17 +776,18 @@
         <h2 class="section-title">Education</h2>
         <div class="edu-grid">
             <div class="edu-card">
-                <div class="degree">Master of Computer Science (MCS)</div>
-                <div class="school">Arizona State University · AI Concentration</div>
-                <div class="dates">Aug 2025 to Dec 2026, currently enrolled</div>
-                <div class="courses">Advanced coursework in Machine Learning, Computer Vision, Natural Language Processing, Deep Learning, AI Ethics, Advanced Algorithms, Distributed Systems.</div>
+                <div class="degree">Master of Computer Science</div>
+                <div class="school">Arizona State University</div>
+                <div class="dates">Expected Dec 2026</div>
+                <span class="gpa-badge">GPA 3.79 / 4.0</span>
+                <div class="courses">Artificial Intelligence, Statistical Machine Learning, Data Mining, Foundations of Algorithms, Distributed &amp; Multiprocess Operating Systems, Software Security, Information Assurance &amp; Security.</div>
             </div>
             <div class="edu-card">
                 <div class="degree">B.S. Software Engineering</div>
                 <div class="school">Arizona State University</div>
-                <div class="dates">Jan 2021 to May 2025, conferred</div>
-                <span class="gpa-badge">Summa cum laude, GPA 3.83 / 4.0</span>
-                <div class="courses">Data Structures & Algorithms, OOP, Database Management, Software Engineering, Security (CSE543/545, pwn.college), Distributed Systems (gRPC), Compilers, Computer Systems.</div>
+                <div class="dates">Conferred May 2025</div>
+                <span class="gpa-badge">Summa cum laude, GPA 3.83 / 4.0, Dean's List (4 terms)</span>
+                <div class="courses">Data Structures &amp; Algorithms, Foundations of Machine Learning, Database Management, Web-Based Applications, Mobile Systems, Secure Software Engineering.</div>
             </div>
         </div>
     </div>

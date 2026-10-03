@@ -17,6 +17,6 @@ public class MainController {
 
     @GetMapping("/resume")
     public String resume() {
-        return "resume";
+        return "redirect:/timothy_weaver_resume.pdf";
     }
 }
