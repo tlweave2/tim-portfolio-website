@@ -145,7 +145,7 @@
             <div>
                 <h3><a href="https://vidlyai.com">VidlyAI</a></h3>
                 <p class="role">Sole developer</p>
-                <p>A video editor for clips shot on a phone. You upload raw clips and get back a captioned vertical reel. About 3,000 people have signed up.</p>
+                <p>A video editor for clips shot on a phone. You upload raw clips and get back a captioned vertical reel.</p>
                 <p>A Python worker transcribes the audio with faster-whisper, tracks faces with OpenCV, and estimates who is speaking from mouth movement and a voice fingerprint. Claude then returns an edit decision list, which is checked against the source clips before FFmpeg renders it.</p>
                 <p>Each reel is stored as that edit list, so changing an edit re-renders the video without transcribing it again or calling the model again.</p>
                 <p>The API and the worker talk through a PostgreSQL job queue. Deploys go through GitHub Actions and only run if the 331 engine tests pass.</p>
