@@ -133,7 +133,8 @@
 
         <div class="intro">
             <p>I work mostly in Java and Spring Boot, TypeScript and React, and Python, with PostgreSQL underneath. I built both products by myself and I still run them.</p>
-            <p>I finish a Master of Computer Science at Arizona State in December 2026, and I'm looking for a full-time software engineering job starting in early 2027. I'm a U.S. Army veteran and I'm open to relocating.</p>
+            <p>I finish a Master of Computer Science at Arizona State in December 2026, and I can start full-time now. I'm open to relocating.</p>
+            <p>Software is my latest chapter. I served in the U.S. Army as a biomedical equipment specialist and was the first soldier to score 100% in that training, which got me assigned to Walter Reed Army Medical Center. I then worked as a clinical engineer at Stanford, where I helped develop an infant nitric oxide delivery system and later ran clinical engineering at Mount Zion as its only clinical engineer. After that I started a motorcycle shop with no formal training and ran it for 17 years before going back to school for software.</p>
         </div>
 
         <h2 id="work">Work</h2>
@@ -143,7 +144,7 @@
             <div>
                 <h3><a href="https://vidlyai.com">VidlyAI</a></h3>
                 <p class="role">Sole developer</p>
-                <p>A video editor for clips shot on a phone. You upload raw clips and get back a captioned vertical reel.</p>
+                <p>A video editor for clips shot on a phone. You upload raw clips and get back a captioned vertical reel. About 3,000 people have signed up.</p>
                 <p>A Python worker transcribes the audio with faster-whisper, tracks faces with OpenCV, and estimates who is speaking from mouth movement and a voice fingerprint. Claude then returns an edit decision list, which is checked against the source clips before FFmpeg renders it.</p>
                 <p>Each reel is stored as that edit list, so changing an edit re-renders the video without transcribing it again or calling the model again.</p>
                 <p>The API and the worker talk through a PostgreSQL job queue. Deploys go through GitHub Actions and only run if the 331 engine tests pass.</p>
