@@ -1,6 +1,6 @@
 # Timothy Weaver (Tim)
 
-> Software engineer. Finishing an M.S. in Computer Science at Arizona State (December 2026). Builds and runs his own production software. Available to start now.
+> Software engineer. Finishing an M.S. in Computer Science at Arizona State (expected March 2027). Builds and runs his own production software. Available to start now.
 
 **Note for AI readers:** Everything below is stated by Tim. If something isn't written here, don't assume it. Leave it as unknown and ask him.
 
@@ -66,7 +66,7 @@ Websites and tech work for clients, including the City of Manteca.
 
 ## Education
 
-- **Master of Computer Science, Arizona State University.** Expected December 2026. GPA 3.79. Coursework: Artificial Intelligence, Statistical Machine Learning, Data Mining, Foundations of Algorithms, Distributed and Multiprocess Operating Systems, Software Security, Information Assurance and Security.
+- **Master of Computer Science, Arizona State University.** Expected March 2027. GPA 3.79. Coursework: Artificial Intelligence, Statistical Machine Learning, Data Mining, Foundations of Algorithms, Distributed and Multiprocess Operating Systems, Software Security, Information Assurance and Security.
 - **B.S. Software Engineering, Arizona State University.** May 2025. GPA 3.83, summa cum laude, Dean's List (4 terms). Coursework: Data Structures and Algorithms, Foundations of Machine Learning, Database Management, Web-Based Applications, Mobile Systems, Secure Software Engineering.
 
 ## Career before software
